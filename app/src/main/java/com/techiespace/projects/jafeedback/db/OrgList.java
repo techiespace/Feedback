@@ -40,16 +40,19 @@ public class OrgList implements Parcelable {
     @ColumnInfo
     public String youtube;
     @ColumnInfo
-    public String email;
+    public String priEmail;
+    @ColumnInfo
+    public String priPhone;
 
-    public OrgList(@NonNull String org, String webLink, String feedbackLink, String facebook, String twitter, String youtube, String email) {
+    public OrgList(@NonNull String org, String webLink, String feedbackLink, String facebook, String twitter, String youtube, String priEmail, String priPhone) {
         this.org = org;
         this.webLink = webLink;
         this.feedbackLink = feedbackLink;
         this.facebook = facebook;
         this.twitter = twitter;
         this.youtube = youtube;
-        this.email = email;
+        this.priEmail = priEmail;
+        this.priPhone = priPhone;
     }
 
     public OrgList(Parcel in) {
@@ -60,7 +63,8 @@ public class OrgList implements Parcelable {
         facebook = in.readString();
         twitter = in.readString();
         youtube = in.readString();
-        email = in.readString();
+        priEmail = in.readString();
+        priPhone = in.readString();
     }
 
     @Override
@@ -77,6 +81,7 @@ public class OrgList implements Parcelable {
         dest.writeString(facebook);
         dest.writeString(youtube);
         dest.writeString(twitter);
-        dest.writeString(email);
+        dest.writeString(priEmail);
+        dest.writeString(priPhone);
     }
 }

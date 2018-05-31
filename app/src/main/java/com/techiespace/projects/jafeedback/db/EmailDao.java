@@ -8,16 +8,16 @@ import android.arch.persistence.room.Query;
 import java.util.List;
 
 @Dao
-public interface PhoneDao {
+public interface EmailDao {
 
-    @Query("SELECT * FROM phone WHERE id = :id LIMIT 1")
-    LiveData<List<Phone>> findPhoneById(int id);
+    @Query("SELECT * FROM email WHERE org_id = :id LIMIT 1")
+    LiveData<List<Email>> findEmailById(int id);
 
     @Insert
-    void insert(Phone... phones);
+    void insert(Email... emails);
 
-    @Query("SELECT * FROM phone")
-    LiveData<List<Phone>> getAllPhone();
+    @Query("SELECT * FROM email")
+    LiveData<List<Email>> getAllEmail();
 
     @Query("DELETE FROM org_list")
     void deleteAll();

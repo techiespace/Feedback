@@ -1,10 +1,7 @@
 package com.techiespace.projects.jafeedback;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Observer;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +10,6 @@ import android.widget.TextView;
 
 import com.techiespace.projects.jafeedback.db.OrgDatabase;
 import com.techiespace.projects.jafeedback.db.OrgList;
-import com.techiespace.projects.jafeedback.db.Phone;
 
 import java.util.List;
 
@@ -49,8 +45,9 @@ public class OrgAdapter extends RecyclerView.Adapter<OrgAdapter.ViewHolder> impl
     @Override
     public void onBindViewHolder(final OrgAdapter.ViewHolder holder, final int position) {
         holder.firstName.setText(orgLists.get(position).org);
-        holder.email.setText(orgLists.get(position).email);
-
+        holder.email.setText(orgLists.get(position).priEmail);
+        holder.phone.setText(orgLists.get(position).priPhone);
+/*
         final LiveData<Phone> phone = db.phoneDao().findPhoneById(orgLists.get(position).orgId);  //this requires allowqueriesonmainthread of livedata is removed
         final Observer<Phone> ob = new Observer<Phone>() {
             @Override
@@ -60,12 +57,13 @@ public class OrgAdapter extends RecyclerView.Adapter<OrgAdapter.ViewHolder> impl
             }
         };
         phone.observeForever(ob);
+        */
 
         holder.orgName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mcontext, OrgDetailsActivity.class);
-                intent.putExtra("id", orgLists.get(position));
+                intent.putExtra("id", orgLists.get(position).orgId);
                 mcontext.startActivity(intent);
             }
         });

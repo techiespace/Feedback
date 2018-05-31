@@ -15,6 +15,9 @@ public interface OrgListDao {
     @Insert
     long insert(OrgList orgList);
 
+    @Query("SELECT * FROM org_list WHERE orgId = :id LIMIT 1")
+    LiveData<OrgList> getOrg(int id);
+
     @Query("SELECT * FROM org_list")
     LiveData<List<OrgList>> getAllOrg();
 

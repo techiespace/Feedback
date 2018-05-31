@@ -12,7 +12,7 @@ import android.util.Log;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-@Database(entities = {OrgList.class, Phone.class}, version = 1)
+@Database(entities = {OrgList.class, Phone.class, Email.class}, version = 1)
 public abstract class OrgDatabase extends RoomDatabase {
     private static final String DB_NAME = "org.db";
     private static final Executor executor = Executors.newFixedThreadPool(2);
@@ -51,16 +51,23 @@ public abstract class OrgDatabase extends RoomDatabase {
     }
 
     public abstract OrgListDao orgListDao();
-
     public abstract PhoneDao phoneDao();
+
+    public abstract EmailDao emailDao();
+    //public abstract SocialDao socialDao();
+
 
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
         private final OrgListDao orgListDao;
         private final PhoneDao phoneDao;
+        private final EmailDao emailDao;
+        //private final SocialDao socialDao;
 
         private PopulateDbAsync(OrgDatabase instance) {
             orgListDao = instance.orgListDao();
             phoneDao = instance.phoneDao();
+            emailDao = instance.emailDao();
+            //socialDao = instance.socialDao();
         }
 
         @Override
@@ -68,13 +75,21 @@ public abstract class OrgDatabase extends RoomDatabase {
             orgListDao.deleteAll();
             phoneDao.deleteAll();
 
-            OrgList orgOne = new OrgList("Google", "www.google.com", "g.co/feedback", "fb.com/google", "twitter.com/google", "youtube.com/google", "google@gmail.com");
-            OrgList orgTwo = new OrgList("Youtube", "www.youtube.com", "youtube.com/feedback", "fb.com/youtube", "youtube.com/twitter", "youtube.com", "yt@gmail.com");
+            OrgList orgOne = new OrgList("Google", "www.google.com", "g.co/feedback", "fb.com/google", "twitter.com/google", "youtube.com/google", "google@gmail.com", "1234657980");
+            OrgList orgTwo = new OrgList("Youtube", "www.youtube.com", "youtube.com/feedback", "fb.com/youtube", "youtube.com/twitter", "youtube.com", "yt@gmail.com", "9876543210");
 
-            Phone phoneOne = new Phone("1234567890", (int) orgListDao.insert(orgOne));
-            Phone phoneTwo = new Phone("0987654321", (int) orgListDao.insert(orgTwo));
+            int orgOneId = (int) orgListDao.insert(orgOne);
+            int orgTwoId = (int) orgListDao.insert(orgTwo);
+            Phone phoneOne = new Phone("1234567890", orgOneId);
+            Phone phoneTwo = new Phone("0987654321", orgTwoId, "California Office");
 
+            Email emailOne = new Email("google@gmail.com", orgOneId);
+            Email emailTwo = new Email("yt@gmail.com", orgTwoId);
+
+            //Social socOne = new Social();
+            //Social socTwo = new Social();
             phoneDao.insert(phoneOne, phoneTwo);
+            emailDao.insert(emailOne, emailTwo);
             return null;
         }
     }
