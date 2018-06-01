@@ -12,7 +12,7 @@ import android.util.Log;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-@Database(entities = {OrgList.class, Phone.class, Email.class}, version = 1)
+@Database(entities = {OrgList.class, Phone.class, Email.class, Social.class, Description.class}, version = 1, exportSchema = false)
 public abstract class OrgDatabase extends RoomDatabase {
     private static final String DB_NAME = "org.db";
     private static final Executor executor = Executors.newFixedThreadPool(2);
@@ -52,28 +52,35 @@ public abstract class OrgDatabase extends RoomDatabase {
 
     public abstract OrgListDao orgListDao();
     public abstract PhoneDao phoneDao();
-
     public abstract EmailDao emailDao();
-    //public abstract SocialDao socialDao();
+
+    public abstract SocialDao socialDao();
+
+    public abstract DescriptionDao descriptionDao();
 
 
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
         private final OrgListDao orgListDao;
         private final PhoneDao phoneDao;
         private final EmailDao emailDao;
-        //private final SocialDao socialDao;
+        private final SocialDao socialDao;
+        private final DescriptionDao descriptionDao;
 
         private PopulateDbAsync(OrgDatabase instance) {
             orgListDao = instance.orgListDao();
             phoneDao = instance.phoneDao();
             emailDao = instance.emailDao();
-            //socialDao = instance.socialDao();
+            socialDao = instance.socialDao();
+            descriptionDao = instance.descriptionDao();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
             orgListDao.deleteAll();
             phoneDao.deleteAll();
+            emailDao.deleteAll();
+            socialDao.deleteAll();
+            descriptionDao.deleteAll();
 
             OrgList orgOne = new OrgList("Google", "www.google.com", "g.co/feedback", "fb.com/google", "twitter.com/google", "youtube.com/google", "google@gmail.com", "1234657980");
             OrgList orgTwo = new OrgList("Youtube", "www.youtube.com", "youtube.com/feedback", "fb.com/youtube", "youtube.com/twitter", "youtube.com", "yt@gmail.com", "9876543210");
@@ -86,10 +93,15 @@ public abstract class OrgDatabase extends RoomDatabase {
             Email emailOne = new Email("google@gmail.com", orgOneId);
             Email emailTwo = new Email("yt@gmail.com", orgTwoId);
 
-            //Social socOne = new Social();
-            //Social socTwo = new Social();
+            Social socOne = new Social(orgOneId, "fb.com/google", "twitter.com/google", "youtube.com/google");
+            Social socTwo = new Social(orgTwoId, "fb.com/yt", "twitter.com/yt", "youtube.com/yt");
+
+            Description descOne = new Description(orgOneId, "google.com");
+            Description descTwo = new Description(orgTwoId, "youtube.com");
             phoneDao.insert(phoneOne, phoneTwo);
             emailDao.insert(emailOne, emailTwo);
+            socialDao.insert(socOne, socTwo);
+            descriptionDao.insert(descOne, descTwo);
             return null;
         }
     }

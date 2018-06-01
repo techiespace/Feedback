@@ -4,32 +4,27 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 @Entity(foreignKeys = @ForeignKey(entity = OrgList.class,
         parentColumns = "orgId",
         childColumns = "org_id"))
-public class Social {
+public class Description {
+
+    @ColumnInfo(name = "org_id")
+    public int org_id;
 
     @ColumnInfo
     @PrimaryKey(autoGenerate = true)
-    public int socialId;
-
-    @ColumnInfo(name = "org_id")
-    public int orgId;
+    @NonNull
+    public int descId;
 
     @ColumnInfo
-    public String facebook;
+    public String website;
 
-    @ColumnInfo
-    public String twitter;
-
-    @ColumnInfo
-    public String youtube;
-
-    public Social(int orgId, String facebook, String twitter, String youtube) {
-        this.orgId = orgId;
-        this.facebook = facebook;
-        this.twitter = twitter;
-        this.youtube = youtube;
+    public Description(int org_id, String website) {
+        this.website = website;
+        this.org_id = org_id;
     }
+
 }
