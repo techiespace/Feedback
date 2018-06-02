@@ -30,8 +30,6 @@ public class OrgAdapter extends RecyclerView.Adapter<OrgAdapter.ViewHolder> impl
     }
 
     public void setUsers(List<OrgList> orgLists) {
-        //this.users.clear();
-        //this.users.addAll(users);
         this.orgLists = orgLists;
         notifyDataSetChanged();
     }

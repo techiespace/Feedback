@@ -22,4 +22,7 @@ public interface DescriptionDao {
     @Query("DELETE FROM description")
     void deleteAll();
 
+    @Query("UPDATE description SET website = :webLink WHERE org_id = :id")
+    int updateWebLink(String webLink, int id);
+
 }

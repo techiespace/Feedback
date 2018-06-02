@@ -9,11 +9,11 @@ import android.support.annotation.NonNull;
 
 @Entity(foreignKeys = @ForeignKey(entity = OrgList.class,
         parentColumns = "orgId",
-        childColumns = "id"))
+        childColumns = "org_id"))
 public class Phone {
 
-    @ColumnInfo
-    public int id;
+    @ColumnInfo(name = "org_id")
+    public int orgId;
 
     @ColumnInfo
     @NonNull
@@ -24,15 +24,15 @@ public class Phone {
     public String desc;
 
     @Ignore
-    public Phone(@NonNull String phone, int id) {
+    public Phone(@NonNull String phone, int orgId) {
         this.phone = phone;
-        this.id = id;
+        this.orgId = orgId;
         this.desc = "Main Office";
     }
 
-    public Phone(@NonNull String phone, int id, String desc) {
+    public Phone(@NonNull String phone, int orgId, String desc) {
         this.phone = phone;
-        this.id = id;
+        this.orgId = orgId;
         this.desc = desc;
     }
 }

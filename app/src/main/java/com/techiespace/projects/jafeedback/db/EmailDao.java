@@ -21,4 +21,7 @@ public interface EmailDao {
 
     @Query("DELETE FROM org_list")
     void deleteAll();
+
+    @Query("UPDATE email SET email = :em WHERE org_id = :id")
+    int updateEmail(String em, int id);
 }

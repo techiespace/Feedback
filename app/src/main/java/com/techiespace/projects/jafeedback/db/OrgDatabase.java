@@ -82,8 +82,8 @@ public abstract class OrgDatabase extends RoomDatabase {
             socialDao.deleteAll();
             descriptionDao.deleteAll();
 
-            OrgList orgOne = new OrgList("Google", "www.google.com", "g.co/feedback", "fb.com/google", "twitter.com/google", "youtube.com/google", "google@gmail.com", "1234657980");
-            OrgList orgTwo = new OrgList("Youtube", "www.youtube.com", "youtube.com/feedback", "fb.com/youtube", "youtube.com/twitter", "youtube.com", "yt@gmail.com", "9876543210");
+            OrgList orgOne = new OrgList("Google", "www.google.com", "g.co/feedback", "facebook.com/google", "twitter.com/google", "youtube.com/google", "google@gmail.com", "1234657980");
+            OrgList orgTwo = new OrgList("Youtube", "www.youtube.com", "youtube.com/feedback", "facebook.com/youtube", "youtube.com/twitter", "youtube.com", "yt@gmail.com", "9876543210");
 
             int orgOneId = (int) orgListDao.insert(orgOne);
             int orgTwoId = (int) orgListDao.insert(orgTwo);
@@ -93,8 +93,8 @@ public abstract class OrgDatabase extends RoomDatabase {
             Email emailOne = new Email("google@gmail.com", orgOneId);
             Email emailTwo = new Email("yt@gmail.com", orgTwoId);
 
-            Social socOne = new Social(orgOneId, "fb.com/google", "twitter.com/google", "youtube.com/google");
-            Social socTwo = new Social(orgTwoId, "fb.com/yt", "twitter.com/yt", "youtube.com/yt");
+            Social socOne = new Social(orgOneId, "google", "Google", "Google");
+            Social socTwo = new Social(orgTwoId, "youtube", "YouTube", "youtube");
 
             Description descOne = new Description(orgOneId, "google.com");
             Description descTwo = new Description(orgTwoId, "youtube.com");

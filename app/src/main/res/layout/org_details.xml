@@ -7,6 +7,10 @@
         <variable
             name="orgDetailsViewModel"
             type="com.techiespace.projects.jafeedback.OrgDetailsViewModel"></variable>
+
+        <variable
+            name="handlers"
+            type="com.techiespace.projects.jafeedback.EventHandler" />
     </data>
 
     <LinearLayout
@@ -82,14 +86,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
-                    android:weightSum="6">
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
+                    android:weightSum="7">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
+                        android:layout_weight="3"
                         android:text="Email" />
 
                     <TextView
@@ -110,14 +114,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
-                    android:weightSum="6">
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
+                    android:weightSum="7">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
+                        android:layout_weight="3"
                         android:text="Phone" />
 
                     <TextView
@@ -126,7 +130,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="4"
                         android:text="@{orgDetailsViewModel.getPhonesLiveData[0].phone}"
-                        android:textColor="@color/cardview_dark_background" />
+                        android:textColor="@color/cardview_dark_background" />.
+                    <!--android:onClick="@{handlers.onClickDPhone}"/>-->
                 </LinearLayout>
 
                 <View
@@ -138,15 +143,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
-                    android:weightSum="6">
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
+                    android:weightSum="7">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:text="Facebook" />
+                        android:layout_weight="3"
+                        android:text="Facebook Handle" />
 
                     <TextView
                         android:id="@+id/d_facebook"
@@ -166,15 +171,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
-                    android:weightSum="6">
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
+                    android:weightSum="7">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:text="Twitter" />
+                        android:layout_weight="3"
+                        android:text="Twitter Handle" />
 
                     <TextView
                         android:id="@+id/d_twitter"
@@ -194,15 +199,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
-                    android:weightSum="6">
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
+                    android:weightSum="7">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:text="Youtube" />
+                        android:layout_weight="3"
+                        android:text="Youtube Handle" />
 
                     <TextView
                         android:id="@+id/d_youtube"
@@ -247,14 +252,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="horizontal"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
-                    android:weightSum="6">
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
+                    android:weightSum="7">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
+                        android:layout_weight="3"
                         android:text="Website" />
 
                     <TextView
