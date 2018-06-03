@@ -31,11 +31,12 @@ public class OrgAdapter extends RecyclerView.Adapter<OrgAdapter.ViewHolder> impl
             this.binding = binding;
         }
         public void bind(OrgList orgList){
+            binding.setVariable(BR.orgList,orgList);
 //            binding.email = orgList.priEmail;
 //            binding.phone = orgList.priPhone;
             //binding.setOrgList();
 
-//            binding.executePendingBindings();
+            binding.executePendingBindings();
             //notifyDataSetChanged(); //expensive hack? Try to use properties of live data instead
         }
     }

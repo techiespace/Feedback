@@ -6,9 +6,9 @@
         <variable
             name="orgViewModel"
             type="com.techiespace.projects.jafeedback.OrgViewModel"/>-->
-        <!--<variable-->
-            <!--name="orgList"-->
-            <!--type="com.techiespace.projects.jafeedback.db.OrgList"/>-->
+        <variable
+            name="orgList"
+            type="com.techiespace.projects.jafeedback.db.OrgList"/>
         <!--<variable-->
             <!--name="phone"-->
             <!--type="com.techiespace.projects.jafeedback.db.Phone"/>-->
@@ -40,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="12dp"
-                    android:text="Hi"
+                    android:text="@{orgList.org}"
                     android:textSize="18sp" />
 
                 <LinearLayout
@@ -56,7 +56,7 @@
                         android:background="@android:color/holo_blue_light"
                         android:gravity="center"
                         android:padding="4dp"
-                        android:text="321" />
+                        android:text="@{orgList.priEmail}" />
 
                     <TextView
                         android:id="@+id/phone"
@@ -66,7 +66,7 @@
                         android:background="@android:color/holo_green_light"
                         android:gravity="center"
                         android:padding="4dp"
-                        android:text="123" />
+                        android:text="@{orgList.priPhone}" />
                 </LinearLayout>
 
             </LinearLayout>
