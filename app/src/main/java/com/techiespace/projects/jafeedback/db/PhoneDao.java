@@ -16,9 +16,6 @@ public interface PhoneDao {
     @Insert
     void insert(Phone... phones);
 
-    @Query("SELECT * FROM phone")
-    LiveData<List<Phone>> getAllPhone();
-
     @Query("DELETE FROM org_list")
     void deleteAll();
 

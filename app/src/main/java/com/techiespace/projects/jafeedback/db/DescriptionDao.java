@@ -16,9 +16,6 @@ public interface DescriptionDao {
     @Insert
     void insert(Description... descriptions);
 
-    @Query("SELECT * FROM description")
-    LiveData<List<Description>> getAllDescriptions();
-
     @Query("DELETE FROM description")
     void deleteAll();
 

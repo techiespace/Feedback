@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">JAFeedback</string>
+    <string name="feedback">Feedback</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="facebook_handle">Facebook Handle</string>
+    <string name="twitter_handle">Twitter Handle</string>
+    <string name="youtube_handle">Youtube Handle</string>
+    <string name="organisation_details">Organisation Details</string>
+    <string name="website">Website</string>
+    <string name="brand_image">Brand Image</string>
+    <string name="hint_name">Name Please</string>
+    <string name="hint_phone">Contact number?</string>
+    <string name="hint_fb">facebook.com/???</string>
+    <string name="hint_tw">twitter.com/???</string>
+    <string name="hint_yt">youtube.com/???</string>
+    <string name="hint_email">What\'s the email?</string>
+    <string name="hint_website">Address on the Internet?</string>
 </resources>

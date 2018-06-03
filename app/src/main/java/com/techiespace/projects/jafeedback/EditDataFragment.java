@@ -1,5 +1,6 @@
 package com.techiespace.projects.jafeedback;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -35,13 +36,10 @@ public class EditDataFragment extends DialogFragment {
 
     public static EditDataFragment newInstance(int org, String fieldType, String oldVal) {
         EditDataFragment fragment = new EditDataFragment();
-
         Bundle args = new Bundle();
-
         args.putInt(ORG_ID, org);
         args.putString(FIELD_NAME, fieldType);
         args.putString(OLD_VAL, oldVal);
-//        args.putString(EXTRA_MOVIE_DIRECTOR_FULL_NAME, movieDirectorFullName);
         fragment.setArguments(args);
 
         return fragment;
@@ -56,20 +54,18 @@ public class EditDataFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Bundle args = getArguments();
         orgId = args.getInt(ORG_ID);
         field = args.getString(FIELD_NAME);
         oldVal = args.getString(OLD_VAL);
-//        movieTitleExtra = args.getString(EXTRA_MOVIE_TITLE);
-//        movieDirectorFullNameExtra = args.getString(EXTRA_MOVIE_DIRECTOR_FULL_NAME);
     }
 
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstances) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
-        View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_edit, null);
+//        https://www.bignerdranch.com/blog/understanding-androids-layoutinflater-inflate/
+        @SuppressLint("InflateParams") View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_edit, null);
         final EditText valEditText = view.findViewById(R.id.etFiled);
         valEditText.setText(oldVal);
         valEditText.setSelection(0, oldVal.length());
@@ -124,7 +120,7 @@ public class EditDataFragment extends DialogFragment {
                     case "email": {
                         final EmailDao emailDao = OrgDatabase.getDatabase(context).emailDao();   //will this optimise the code?
                         final OrgListDao orgListDao = OrgDatabase.getDatabase(context).orgListDao();
-                        orgListDao.updateEmail(value,orgId);
+                        orgListDao.updateEmail(value, orgId);
                         emailDao.updateEmail(value, orgId);  //might fail when same org has multiple emails
                         break;
                     }
@@ -138,5 +134,4 @@ public class EditDataFragment extends DialogFragment {
         });
 
     }
-
 }

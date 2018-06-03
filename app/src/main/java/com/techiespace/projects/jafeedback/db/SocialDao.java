@@ -16,9 +16,6 @@ public interface SocialDao {
     @Insert
     void insert(Social... socials);
 
-    @Query("SELECT * FROM social")
-    LiveData<List<Social>> getAllSocial();
-
     @Query("DELETE FROM social")
     void deleteAll();
 

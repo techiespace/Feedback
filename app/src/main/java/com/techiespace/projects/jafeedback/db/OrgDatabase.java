@@ -9,13 +9,9 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-
 @Database(entities = {OrgList.class, Phone.class, Email.class, Social.class, Description.class}, version = 1, exportSchema = false)
 public abstract class OrgDatabase extends RoomDatabase {
     private static final String DB_NAME = "org.db";
-    private static final Executor executor = Executors.newFixedThreadPool(2);
     public static OrgDatabase INSTANCE;
 
     public static OrgDatabase getDatabase(final Context context) {
@@ -30,12 +26,7 @@ public abstract class OrgDatabase extends RoomDatabase {
                                     {
                                         super.onCreate(db);
                                         Log.d("org.db", "onCreate: Population with data...");
-                                        //executor.execute(new Runnable() {
-                                        //    @Override
-                                        //    public void run() {
                                         new PopulateDbAsync(INSTANCE).execute();
-                                        //   }
-                                        //});
                                     }
                                 }
                             }).build();
@@ -45,13 +36,10 @@ public abstract class OrgDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    public void clearDb() {  //Is this ever called?
-        if (INSTANCE != null)
-            new PopulateDbAsync(INSTANCE).execute();
-    }
-
     public abstract OrgListDao orgListDao();
+
     public abstract PhoneDao phoneDao();
+
     public abstract EmailDao emailDao();
 
     public abstract SocialDao socialDao();
@@ -82,8 +70,8 @@ public abstract class OrgDatabase extends RoomDatabase {
             socialDao.deleteAll();
             descriptionDao.deleteAll();
 
-            OrgList orgOne = new OrgList("Google", "www.google.com", "g.co/feedback", "facebook.com/google", "twitter.com/google", "youtube.com/google", "google@gmail.com", "1234657980");
-            OrgList orgTwo = new OrgList("Youtube", "www.youtube.com", "youtube.com/feedback", "facebook.com/youtube", "youtube.com/twitter", "youtube.com", "yt@gmail.com", "9876543210");
+            OrgList orgOne = new OrgList("Google", "www.google.com", "g.co/feedback", "google@gmail.com", "1234657980");
+            OrgList orgTwo = new OrgList("Youtube", "www.youtube.com", "youtube.com/feedback", "yt@gmail.com", "9876543210");
 
             int orgOneId = (int) orgListDao.insert(orgOne);
             int orgTwoId = (int) orgListDao.insert(orgTwo);

@@ -21,12 +21,6 @@ import java.util.List;
 
 public class OrgDetailsViewModel extends AndroidViewModel {
 
-    private OrgListDao orgListDao;
-    private PhoneDao phoneDao;
-    private EmailDao emailDao;
-    private SocialDao socialDao;
-    private DescriptionDao descDao;
-
     private LiveData<OrgList> orgLiveData;
     private LiveData<List<Phone>> phonesLiveData;
     private LiveData<List<Email>> emailsLiveData;
@@ -35,19 +29,19 @@ public class OrgDetailsViewModel extends AndroidViewModel {
 
     public OrgDetailsViewModel(@NonNull Application application, int orgId) {
         super(application);
-        orgListDao = OrgDatabase.getDatabase(application).orgListDao();
+        OrgListDao orgListDao = OrgDatabase.getDatabase(application).orgListDao();
         orgLiveData = orgListDao.getOrg(orgId);
 
-        phoneDao = OrgDatabase.getDatabase(application).phoneDao();
+        PhoneDao phoneDao = OrgDatabase.getDatabase(application).phoneDao();
         phonesLiveData = phoneDao.findPhoneById(orgId);
 
-        emailDao = OrgDatabase.getDatabase(application).emailDao();
+        EmailDao emailDao = OrgDatabase.getDatabase(application).emailDao();
         emailsLiveData = emailDao.findEmailById(orgId);
 
-        socialDao = OrgDatabase.getDatabase(application).socialDao();
+        SocialDao socialDao = OrgDatabase.getDatabase(application).socialDao();
         socialLiveData = socialDao.findSocialById(orgId);
 
-        descDao = OrgDatabase.getDatabase(application).descriptionDao();
+        DescriptionDao descDao = OrgDatabase.getDatabase(application).descriptionDao();
         descLiveData = descDao.findDescriptionById(orgId);
     }
 
@@ -63,7 +57,7 @@ public class OrgDetailsViewModel extends AndroidViewModel {
         return emailsLiveData;
     }
 
-    public LiveData<List<Social>> getSocailLiveData() {
+    public LiveData<List<Social>> getSocialLiveData() {
         return socialLiveData;
     }
 

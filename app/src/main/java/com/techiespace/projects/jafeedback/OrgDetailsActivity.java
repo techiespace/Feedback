@@ -27,13 +27,11 @@ public class OrgDetailsActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.org_details);
-        //OrgList orgList = getIntent().getParcelableExtra("id");
         orgId = getIntent().getIntExtra("id", 1);
         OrgDetailsViewModel orgDetailsViewModel = ViewModelProviders.of(this, new ViewModelFactory(this.getApplication(), orgId)).get(OrgDetailsViewModel.class);
         orgDetailsBinding = DataBindingUtil.setContentView(this, R.layout.org_details);
         orgDetailsBinding.setLifecycleOwner(this);
         orgDetailsBinding.setOrgDetailsViewModel(orgDetailsViewModel);
-        //orgDetailsBinding.setVariable(BR.orgDetailsViewModel, orgDetailsViewModel);
         setContentView(orgDetailsBinding.getRoot());
         displayDetails(orgId);
     }
@@ -164,11 +162,9 @@ public class OrgDetailsActivity extends AppCompatActivity {
             if (fbAppInfo.enabled) {
                 int versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode;
                 if (versionCode >= 3002850) { //newer versions of fb app
-                    String[] tempUrl = {"fb://facewebmodal/f?href=https://www.facebook.com/" + facebook, "fb"};
-                    return tempUrl;
+                    return new String[]{"fb://facewebmodal/f?href=https://www.facebook.com/" + facebook, "fb"};
                 } else { //older versions of fb app
-                    String[] tempUrl = {"fb://page/" + facebook};
-                    return tempUrl;
+                    return new String[]{"fb://page/" + facebook};
                 }
             }
 
@@ -181,11 +177,9 @@ public class OrgDetailsActivity extends AppCompatActivity {
 //                }
 //            }
 //            catch (PackageManager.NameNotFoundException ex) {
-            String tempUrl[] = {"https://www.facebook.com/" + facebook, "web"};
-            return tempUrl; //normal web url
+            return new String[]{"https://www.facebook.com/" + facebook, "web"}; //normal web url
 //            }
         }
-        String tempUrl[] = {"https://www.facebook.com/" + facebook, "web"};    //never executed?
-        return tempUrl;
+        return new String[]{"https://www.facebook.com/" + facebook, "web"};
     }
 }

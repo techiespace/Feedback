@@ -8,12 +8,10 @@ public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
     private Application mApplication;
     private int mParam;
 
-
     public ViewModelFactory(Application application, int param) {
         mApplication = application;
         mParam = param;
     }
-
 
     @Override
     public <T extends ViewModel> T create(Class<T> modelClass) {

@@ -16,9 +16,6 @@ public interface EmailDao {
     @Insert
     void insert(Email... emails);
 
-    @Query("SELECT * FROM email")
-    LiveData<List<Email>> getAllEmail();
-
     @Query("DELETE FROM org_list")
     void deleteAll();
 

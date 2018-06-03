@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
-        <!--<import type="com.techiespace.projects.jafeedback.OrgViewModel"/>
-        <variable
-            name="orgViewModel"
-            type="com.techiespace.projects.jafeedback.OrgViewModel"/>-->
+
         <variable
             name="orgList"
-            type="com.techiespace.projects.jafeedback.db.OrgList"/>
-        <!--<variable-->
-            <!--name="phone"-->
-            <!--type="com.techiespace.projects.jafeedback.db.Phone"/>-->
-        <!--<variable-->
-            <!--name="orgViewModel"-->
-            <!--type="com.techiespace.projects.jafeedback.OrgViewModel"></variable>-->
-
+            type="com.techiespace.projects.jafeedback.db.OrgList" />
     </data>
 
     <LinearLayout
@@ -48,6 +39,7 @@
                     android:layout_height="match_parent"
                     android:weightSum="2">
 
+                    <!--#TODO:Replace excess text with ...-->
                     <TextView
                         android:id="@+id/email"
                         android:layout_width="0dp"
@@ -68,9 +60,7 @@
                         android:padding="4dp"
                         android:text="@{orgList.priPhone}" />
                 </LinearLayout>
-
             </LinearLayout>
-
         </android.support.v7.widget.CardView>
     </LinearLayout>
 </layout>

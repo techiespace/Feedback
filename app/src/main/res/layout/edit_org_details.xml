@@ -7,6 +7,10 @@
         <variable
             name="orgDetailsViewModel"
             type="com.techiespace.projects.jafeedback.OrgDetailsViewModel" />
+
+        <!--<variable-->
+        <!--name="handlers"-->
+        <!--type="com.techiespace.projects.jafeedback.EventHandler" />-->
     </data>
 
     <ScrollView
@@ -37,19 +41,21 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
-                    android:contentDescription="Brand Image"
+                    android:contentDescription="@string/brand_image"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@mipmap/ic_launcher_round" />
 
-                <TextView
-                    android:id="@+id/org_name"
+                <EditText
+                    android:id="@+id/d_edit_org_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_weight="2"
+                    android:hint="@string/hint_name"
+                    android:inputType="text"
                     android:text="@{orgDetailsViewModel.getOrgLiveData.org}"
                     android:textSize="30sp"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -97,11 +103,13 @@
                             android:layout_weight="3"
                             android:text="@string/email" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/d_pri_email"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
+                            android:hint="@string/hint_email"
+                            android:inputType="textEmailAddress"
                             android:text="@{orgDetailsViewModel.getEmailsLiveData[0].email}"
                             android:textColor="@color/cardview_dark_background" />
                     </LinearLayout>
@@ -125,11 +133,13 @@
                             android:layout_weight="3"
                             android:text="@string/phone" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/d_pri_phone"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
+                            android:hint="@string/hint_phone"
+                            android:inputType="phone"
                             android:text="@{orgDetailsViewModel.getPhonesLiveData[0].phone}"
                             android:textColor="@color/cardview_dark_background" />
                         <!--android:onClick="@{handlers.onClickDPhone}"/>-->
@@ -154,11 +164,13 @@
                             android:layout_weight="3"
                             android:text="@string/facebook_handle" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/d_facebook"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
+                            android:hint="@string/hint_fb"
+                            android:inputType="text"
                             android:text="@{orgDetailsViewModel.getSocialLiveData[0].facebook}"
                             android:textColor="@color/cardview_dark_background" />
                     </LinearLayout>
@@ -182,11 +194,13 @@
                             android:layout_weight="3"
                             android:text="@string/twitter_handle" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/d_twitter"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
+                            android:hint="@string/hint_tw"
+                            android:inputType="text"
                             android:text="@{orgDetailsViewModel.getSocialLiveData[0].twitter}"
                             android:textColor="@color/cardview_dark_background" />
                     </LinearLayout>
@@ -210,11 +224,13 @@
                             android:layout_weight="3"
                             android:text="@string/youtube_handle" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/d_youtube"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
+                            android:hint="@string/hint_yt"
+                            android:inputType="text"
                             android:text="@{orgDetailsViewModel.getSocialLiveData[0].youtube}"
                             android:textColor="@color/cardview_dark_background" />
                     </LinearLayout>
@@ -261,11 +277,13 @@
                             android:layout_weight="3"
                             android:text="@string/website" />
 
-                        <TextView
+                        <EditText
                             android:id="@+id/d_web_link"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
+                            android:hint="@string/hint_website"
+                            android:inputType="text"
                             android:text="@{orgDetailsViewModel.getDescLiveData[0].website}"
                             android:textColor="@color/cardview_dark_background" />
                     </LinearLayout>
