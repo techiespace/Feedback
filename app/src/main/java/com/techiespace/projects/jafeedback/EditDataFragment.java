@@ -14,6 +14,7 @@ import android.widget.EditText;
 import com.techiespace.projects.jafeedback.db.DescriptionDao;
 import com.techiespace.projects.jafeedback.db.EmailDao;
 import com.techiespace.projects.jafeedback.db.OrgDatabase;
+import com.techiespace.projects.jafeedback.db.OrgListDao;
 import com.techiespace.projects.jafeedback.db.PhoneDao;
 import com.techiespace.projects.jafeedback.db.SocialDao;
 
@@ -115,11 +116,15 @@ public class EditDataFragment extends DialogFragment {
                     }
                     case "phone": {
                         final PhoneDao phoneDao = OrgDatabase.getDatabase(context).phoneDao();   //will this optimise the code?
+                        final OrgListDao orgListDao = OrgDatabase.getDatabase(context).orgListDao();
+                        orgListDao.updatePhone(value, orgId);
                         phoneDao.updatePhone(value, orgId);  //might fail when same org has multiple phones
                         break;
                     }
                     case "email": {
                         final EmailDao emailDao = OrgDatabase.getDatabase(context).emailDao();   //will this optimise the code?
+                        final OrgListDao orgListDao = OrgDatabase.getDatabase(context).orgListDao();
+                        orgListDao.updateEmail(value,orgId);
                         emailDao.updateEmail(value, orgId);  //might fail when same org has multiple emails
                         break;
                     }

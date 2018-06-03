@@ -2,6 +2,7 @@ package com.techiespace.projects.jafeedback;
 
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.techiespace.projects.jafeedback.databinding.OrgRowBinding;
 import com.techiespace.projects.jafeedback.db.OrgDatabase;
 import com.techiespace.projects.jafeedback.db.OrgList;
 
@@ -20,6 +22,23 @@ public class OrgAdapter extends RecyclerView.Adapter<OrgAdapter.ViewHolder> impl
     List<OrgList> orgLists;
     private Context mcontext;
     private OrgDatabase db;
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        private OrgRowBinding binding;
+
+        public MyViewHolder(OrgRowBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
+        public void bind(OrgList orgList){
+//            binding.email = orgList.priEmail;
+//            binding.phone = orgList.priPhone;
+            //binding.setOrgList();
+
+//            binding.executePendingBindings();
+            //notifyDataSetChanged(); //expensive hack? Try to use properties of live data instead
+        }
+    }
 
     public OrgAdapter(List<OrgList> orgLists) {
         this.orgLists = orgLists;
@@ -34,19 +53,27 @@ public class OrgAdapter extends RecyclerView.Adapter<OrgAdapter.ViewHolder> impl
         notifyDataSetChanged();
     }
 
-
     @Override
-    public OrgAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         db = OrgDatabase.getDatabase(mcontext);
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.org_row, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.org_row, parent, false));
+
+
+        //OrgRowBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),R.layout.org_row,parent,false);
+        //return new ViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(final OrgAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         final String email = orgLists.get(position).priEmail;
         final String phone = orgLists.get(position).priPhone;
-        holder.firstName.setText(orgLists.get(position).org);
+        //OrgList orgList = orgLists.get(position);
+
+        //holder.bind(orgList);
+
+//        holder.binding.setLifecycleOwner();
+//        holder.binding.setOrgList(orgList);
+        holder.orgName.setText(orgLists.get(position).org);
         holder.email.setText(email);
         holder.phone.setText(phone);
         holder.orgName.setOnClickListener(new View.OnClickListener() {
@@ -57,31 +84,31 @@ public class OrgAdapter extends RecyclerView.Adapter<OrgAdapter.ViewHolder> impl
                 mcontext.startActivity(intent);
             }
         });
-        holder.phone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent phoneIntent = new Intent(Intent.ACTION_DIAL);
-                phoneIntent.setData(Uri.parse("tel:" + phone));
-                if (phoneIntent.resolveActivity(mcontext.getPackageManager()) != null)
-                    mcontext.startActivity(phoneIntent);
-                else
-                    Toast.makeText(mcontext, "No suitable app found to make a phone call :(", Toast.LENGTH_LONG).show();
-            }
-        });
-        holder.email.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-                emailIntent.setType("text/plain");
-                emailIntent.setData(Uri.parse("mailto:" + email));
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
-                emailIntent.putExtra(Intent.EXTRA_TEXT, "Hello Madam/Sir,");
-                if (emailIntent.resolveActivity(mcontext.getPackageManager()) != null)
-                    mcontext.startActivity(Intent.createChooser(emailIntent, "Choose an email client :)"));
-                else
-                    Toast.makeText(mcontext, "No suitable app found to send email :(", Toast.LENGTH_LONG).show();
-            }
-        });
+//        holder.phone.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent phoneIntent = new Intent(Intent.ACTION_DIAL);
+//                phoneIntent.setData(Uri.parse("tel:" + phone));
+//                if (phoneIntent.resolveActivity(mcontext.getPackageManager()) != null)
+//                    mcontext.startActivity(phoneIntent);
+//                else
+//                    Toast.makeText(mcontext, "No suitable app found to make a phone call :(", Toast.LENGTH_LONG).show();
+//            }
+//        });
+//        holder.email.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+//                emailIntent.setType("text/plain");
+//                emailIntent.setData(Uri.parse("mailto:" + email));
+//                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
+//                emailIntent.putExtra(Intent.EXTRA_TEXT, "Hello Madam/Sir,");
+//                if (emailIntent.resolveActivity(mcontext.getPackageManager()) != null)
+//                    mcontext.startActivity(Intent.createChooser(emailIntent, "Choose an email client :)"));
+//                else
+//                    Toast.makeText(mcontext, "No suitable app found to send email :(", Toast.LENGTH_LONG).show();
+//            }
+//        });
 
     }
 

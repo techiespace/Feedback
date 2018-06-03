@@ -24,4 +24,9 @@ public interface OrgListDao {
     @Query("DELETE FROM org_list")
     void deleteAll();
 
+    @Query("UPDATE org_list SET priPhone = :phone WHERE orgId = :id")
+    int updatePhone(String phone, int id);
+
+    @Query("UPDATE org_list SET priEmail = :em WHERE orgId = :id")
+    int updateEmail(String em, int id);
 }

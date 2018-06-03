@@ -32,7 +32,8 @@ public class OrgDetailsActivity extends AppCompatActivity {
         OrgDetailsViewModel orgDetailsViewModel = ViewModelProviders.of(this, new ViewModelFactory(this.getApplication(), orgId)).get(OrgDetailsViewModel.class);
         orgDetailsBinding = DataBindingUtil.setContentView(this, R.layout.org_details);
         orgDetailsBinding.setLifecycleOwner(this);
-        orgDetailsBinding.setVariable(BR.orgDetailsViewModel, orgDetailsViewModel);
+        orgDetailsBinding.setOrgDetailsViewModel(orgDetailsViewModel);
+        //orgDetailsBinding.setVariable(BR.orgDetailsViewModel, orgDetailsViewModel);
         setContentView(orgDetailsBinding.getRoot());
         displayDetails(orgId);
     }
