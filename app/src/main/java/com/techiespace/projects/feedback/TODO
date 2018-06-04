@@ -1,0 +1,4 @@
+1) Gather Data
+2) Write Tests
+3) Handle Orgs with multiple phone and emails.
+4) Checkbox the send changes to dev while saving them locally(AddOrgActivity).

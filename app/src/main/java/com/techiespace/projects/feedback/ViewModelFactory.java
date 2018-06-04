@@ -1,4 +1,4 @@
-package com.techiespace.projects.jafeedback;
+package com.techiespace.projects.feedback;
 
 import android.app.Application;
 import android.arch.lifecycle.ViewModel;

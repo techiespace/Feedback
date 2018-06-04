@@ -1,21 +1,21 @@
-package com.techiespace.projects.jafeedback;
+package com.techiespace.projects.feedback;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
-import com.techiespace.projects.jafeedback.db.Description;
-import com.techiespace.projects.jafeedback.db.DescriptionDao;
-import com.techiespace.projects.jafeedback.db.Email;
-import com.techiespace.projects.jafeedback.db.EmailDao;
-import com.techiespace.projects.jafeedback.db.OrgDatabase;
-import com.techiespace.projects.jafeedback.db.OrgList;
-import com.techiespace.projects.jafeedback.db.OrgListDao;
-import com.techiespace.projects.jafeedback.db.Phone;
-import com.techiespace.projects.jafeedback.db.PhoneDao;
-import com.techiespace.projects.jafeedback.db.Social;
-import com.techiespace.projects.jafeedback.db.SocialDao;
+import com.techiespace.projects.feedback.db.Description;
+import com.techiespace.projects.feedback.db.DescriptionDao;
+import com.techiespace.projects.feedback.db.Email;
+import com.techiespace.projects.feedback.db.EmailDao;
+import com.techiespace.projects.feedback.db.OrgDatabase;
+import com.techiespace.projects.feedback.db.OrgList;
+import com.techiespace.projects.feedback.db.OrgListDao;
+import com.techiespace.projects.feedback.db.Phone;
+import com.techiespace.projects.feedback.db.PhoneDao;
+import com.techiespace.projects.feedback.db.Social;
+import com.techiespace.projects.feedback.db.SocialDao;
 
 import java.util.List;
 

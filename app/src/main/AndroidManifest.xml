@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.techiespace.projects.jafeedback">
+    package="com.techiespace.projects.feedback">
 
     <!--TODO: Add android all links : https://developer.android.com/studio/write/app-link-indexing-->
     <application

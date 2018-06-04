@@ -1,13 +1,13 @@
-package com.techiespace.projects.jafeedback;
+package com.techiespace.projects.feedback;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
-import com.techiespace.projects.jafeedback.db.OrgDatabase;
-import com.techiespace.projects.jafeedback.db.OrgList;
-import com.techiespace.projects.jafeedback.db.OrgListDao;
+import com.techiespace.projects.feedback.db.OrgDatabase;
+import com.techiespace.projects.feedback.db.OrgList;
+import com.techiespace.projects.feedback.db.OrgListDao;
 
 import java.util.List;
 

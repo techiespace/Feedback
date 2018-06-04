@@ -6,7 +6,7 @@
 
         <variable
             name="orgDetailsViewModel"
-            type="com.techiespace.projects.jafeedback.OrgDetailsViewModel" />
+            type="com.techiespace.projects.feedback.OrgDetailsViewModel" />
     </data>
 
     <ScrollView

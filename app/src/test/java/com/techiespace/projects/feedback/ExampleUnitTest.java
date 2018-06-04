@@ -1,4 +1,4 @@
-package com.techiespace.projects.jafeedback;
+package com.techiespace.projects.feedback;
 
 import org.junit.Test;
 

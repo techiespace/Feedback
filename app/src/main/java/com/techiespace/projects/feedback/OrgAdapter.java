@@ -1,4 +1,4 @@
-package com.techiespace.projects.jafeedback;
+package com.techiespace.projects.feedback;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,9 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.techiespace.projects.jafeedback.databinding.OrgRowBinding;
-import com.techiespace.projects.jafeedback.db.OrgDatabase;
-import com.techiespace.projects.jafeedback.db.OrgList;
+import com.techiespace.projects.feedback.databinding.OrgRowBinding;
+import com.techiespace.projects.feedback.db.OrgDatabase;
+import com.techiespace.projects.feedback.db.OrgList;
 
 import java.util.List;
 

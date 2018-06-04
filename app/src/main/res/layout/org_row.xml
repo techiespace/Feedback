@@ -6,7 +6,7 @@
 
         <variable
             name="orgList"
-            type="com.techiespace.projects.jafeedback.db.OrgList" />
+            type="com.techiespace.projects.feedback.db.OrgList" />
     </data>
 
     <LinearLayout

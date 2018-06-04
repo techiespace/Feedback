@@ -1,4 +1,4 @@
-package com.techiespace.projects.jafeedback;
+package com.techiespace.projects.feedback;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -12,7 +12,7 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.techiespace.projects.jafeedback.db.OrgList;
+import com.techiespace.projects.feedback.db.OrgList;
 
 import java.util.List;
 

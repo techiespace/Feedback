@@ -1,4 +1,4 @@
-package com.techiespace.projects.jafeedback;
+package com.techiespace.projects.feedback;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -12,12 +12,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
-import com.techiespace.projects.jafeedback.db.DescriptionDao;
-import com.techiespace.projects.jafeedback.db.EmailDao;
-import com.techiespace.projects.jafeedback.db.OrgDatabase;
-import com.techiespace.projects.jafeedback.db.OrgListDao;
-import com.techiespace.projects.jafeedback.db.PhoneDao;
-import com.techiespace.projects.jafeedback.db.SocialDao;
+import com.techiespace.projects.feedback.db.DescriptionDao;
+import com.techiespace.projects.feedback.db.EmailDao;
+import com.techiespace.projects.feedback.db.OrgDatabase;
+import com.techiespace.projects.feedback.db.OrgListDao;
+import com.techiespace.projects.feedback.db.PhoneDao;
+import com.techiespace.projects.feedback.db.SocialDao;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;

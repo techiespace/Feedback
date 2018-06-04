@@ -1,4 +1,4 @@
-package com.techiespace.projects.jafeedback;
+package com.techiespace.projects.feedback;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
@@ -14,14 +14,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
-import com.techiespace.projects.jafeedback.databinding.OrgDetailsBinding;
+import com.techiespace.projects.feedback.databinding.OrgDetailsBinding;
 
 
 public class OrgDetailsActivity extends AppCompatActivity {
 
     public int orgId;
     OrgDetailsBinding orgDetailsBinding;
-    //intents
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,8 +36,6 @@ public class OrgDetailsActivity extends AppCompatActivity {
     }
 
     private void displayDetails(final int orgId) {
-
-        //email
         orgDetailsBinding.dPriEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

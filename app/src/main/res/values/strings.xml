@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">JAFeedback</string>
+    <string name="app_name">Feedback</string>
     <string name="feedback">Feedback</string>
     <string name="email">Email</string>
     <string name="phone">Phone</string>
