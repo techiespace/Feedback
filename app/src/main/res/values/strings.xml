@@ -16,4 +16,5 @@
     <string name="hint_yt">youtube.com/???</string>
     <string name="hint_email">What\'s the email?</string>
     <string name="hint_website">Address on the Internet?</string>
+    <string name="hint_edit_value">What should I change it to?</string>
 </resources>

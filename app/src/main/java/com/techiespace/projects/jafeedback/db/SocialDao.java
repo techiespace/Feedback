@@ -13,7 +13,7 @@ public interface SocialDao {
     @Query("SELECT * FROM social WHERE org_id = :id LIMIT 1")
     LiveData<List<Social>> findSocialById(int id);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Social... socials);
 
     @Query("DELETE FROM social")

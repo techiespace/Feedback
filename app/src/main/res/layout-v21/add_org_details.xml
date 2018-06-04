@@ -102,7 +102,7 @@
                             android:text="@string/email" />
 
                         <EditText
-                            android:id="@+id/d_pri_email"
+                            android:id="@+id/d_edit_pri_email"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
@@ -132,7 +132,7 @@
                             android:text="@string/phone" />
 
                         <EditText
-                            android:id="@+id/d_pri_phone"
+                            android:id="@+id/d_edit_pri_phone"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
@@ -163,7 +163,7 @@
                             android:text="@string/facebook_handle" />
 
                         <EditText
-                            android:id="@+id/d_facebook"
+                            android:id="@+id/d_edit_facebook"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
@@ -193,7 +193,7 @@
                             android:text="@string/twitter_handle" />
 
                         <EditText
-                            android:id="@+id/d_twitter"
+                            android:id="@+id/d_edit_twitter"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
@@ -223,7 +223,7 @@
                             android:text="@string/youtube_handle" />
 
                         <EditText
-                            android:id="@+id/d_youtube"
+                            android:id="@+id/d_edit_youtube"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
@@ -276,7 +276,7 @@
                             android:text="@string/website" />
 
                         <EditText
-                            android:id="@+id/d_web_link"
+                            android:id="@+id/d_edit_web_link"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
@@ -287,6 +287,14 @@
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
+            <Button
+                android:id="@+id/save_org_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="saveOrg"
+                android:text="Save" />
         </LinearLayout>
     </ScrollView>
 </layout>

@@ -16,7 +16,7 @@
         <LinearLayout
 
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
 
@@ -33,11 +33,10 @@
                     android:id="@+id/imageView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
-                    android:contentDescription="Brand Image"
+                    android:contentDescription="@string/brand_image"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@mipmap/ic_launcher_round" />
@@ -46,7 +45,6 @@
                     android:id="@+id/org_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_weight="2"
@@ -71,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="8dp"
                     android:paddingTop="8dp"
-                    android:text="Feedback"
+                    android:text="@string/feedback"
                     android:textAppearance="@android:style/TextAppearance.Material.Headline"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -95,7 +93,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="3"
-                            android:text="Email" />
+                            android:text="@string/email" />
 
                         <TextView
                             android:id="@+id/d_pri_email"
@@ -123,7 +121,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="3"
-                            android:text="Phone" />
+                            android:text="@string/phone" />
 
                         <TextView
                             android:id="@+id/d_pri_phone"
@@ -131,7 +129,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
                             android:text="@{orgDetailsViewModel.getPhonesLiveData[0].phone}"
-                            android:textColor="@color/cardview_dark_background" />.
+                            android:textColor="@color/cardview_dark_background" />
                         <!--android:onClick="@{handlers.onClickDPhone}"/>-->
                     </LinearLayout>
 
@@ -152,7 +150,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="3"
-                            android:text="Facebook Handle" />
+                            android:text="@string/facebook_handle" />
 
                         <TextView
                             android:id="@+id/d_facebook"
@@ -180,7 +178,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="3"
-                            android:text="Twitter Handle" />
+                            android:text="@string/twitter_handle" />
 
                         <TextView
                             android:id="@+id/d_twitter"
@@ -208,7 +206,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="3"
-                            android:text="Youtube Handle" />
+                            android:text="@string/youtube_handle" />
 
                         <TextView
                             android:id="@+id/d_youtube"
@@ -233,10 +231,9 @@
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:paddingBottom="8dp"
                     android:paddingTop="8dp"
-                    android:text="Organisation Details"
+                    android:text="@string/organisation_details"
                     android:textAppearance="@android:style/TextAppearance.Material.Headline"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -251,7 +248,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:orientation="horizontal"
                         android:paddingBottom="16dp"
                         android:paddingTop="16dp"
@@ -261,7 +257,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="3"
-                            android:text="Website" />
+                            android:text="@string/website" />
 
                         <TextView
                             android:id="@+id/d_web_link"

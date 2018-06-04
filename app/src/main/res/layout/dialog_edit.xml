@@ -13,6 +13,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
-        android:hint="What should I change it to?"
+        android:hint="@string/hint_edit_value"
         android:inputType="textPersonName" />
 </LinearLayout>
